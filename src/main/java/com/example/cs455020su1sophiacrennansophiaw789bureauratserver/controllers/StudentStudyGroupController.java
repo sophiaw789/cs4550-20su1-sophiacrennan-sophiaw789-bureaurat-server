@@ -14,35 +14,35 @@ public class StudentStudyGroupController {
     @Autowired
     StudentStudyGroupService studentStudyService;
 
-    @PutMapping("/api/studygroups/{studentId}")
+    @PutMapping("/api/studygroups/student/{studentId}")
     public StudentStudyGroup updateStudentStudy(@PathVariable("studentId") Integer studentStudyId,
             @RequestBody StudentStudyGroup updatedStudentStudy) {
         return studentStudyService.updateStudentStudy(studentStudyId, updatedStudentStudy);
     }
 
-    @PostMapping("/api/courses/{cid}/studygroups")
+    @PostMapping("/api/courses/{cid}/studygroups/student")
     public StudentStudyGroup createStudentStudy(@PathVariable("cid") Integer cid,
             @RequestBody StudentStudyGroup newStudentStudy) {
         newStudentStudy.setCourseId(cid);
         return studentStudyService.createStudentStudy(newStudentStudy);
     }
 
-    @GetMapping("/api/studygroups")
+    @GetMapping("/api/studygroups/student")
     public List<StudentStudyGroup> findAllStudentStudys() {
         return studentStudyService.findAllStudentStudys();
     }
 
-    @GetMapping("/api/studygroups/{studentId}")
+    @GetMapping("/api/studygroups/student/{studentId}")
     public StudentStudyGroup findStudentStudyById(@PathVariable("studentId") Integer studentId) {
         return studentStudyService.findStudentStudyById(studentId);
     }
 
-    @DeleteMapping("/api/studygroups/{studentId}")
+    @DeleteMapping("/api/studygroups/student/{studentId}")
     public List<StudentStudyGroup> deleteStudentStudy(@PathVariable("studentId") Integer studentId) {
         return studentStudyService.deleteStudentStudy(studentId);
     }
 
-    @GetMapping("/api/courses/{cid}/studygroups")
+    @GetMapping("/api/courses/{cid}/studygroups/student")
     public List<StudentStudyGroup> findStudentStudysForCourse(@PathVariable("cid") Integer cid) {
         return studentStudyService.findStudentStudysForCourse(cid);
     }
