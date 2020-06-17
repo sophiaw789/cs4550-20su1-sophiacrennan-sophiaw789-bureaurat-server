@@ -1,4 +1,4 @@
-The api URL is https://neustudyserver.herokuapp.com/api/
+The API URL is https://neustudyserver.herokuapp.com/api/
 
 Models:
 
