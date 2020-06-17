@@ -1,17 +1,20 @@
 package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models;
 
-import javax.persistence.*;
+import java.util.List;
 
-@Entity
-@Table(name = "users")
+//import javax.persistence.*;
+
+//@Entity
+//@Table(name = "users")
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@Id
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String username;
     private String password;
     private String email;
     private Boolean admin;
+    private List<StudyGroup> courses; 
 
     public Integer getId() {
         return id;
@@ -51,5 +54,13 @@ public class User {
 
     public void setAdmin(Boolean admin) {
         this.admin = admin;
+    }
+
+    public List<StudyGroup> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<StudyGroup> courses) {
+        this.courses = courses;
     }
 }
