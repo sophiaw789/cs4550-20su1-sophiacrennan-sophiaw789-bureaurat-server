@@ -6,7 +6,7 @@ import java.util.List;
 public abstract class StudyGroup {
     private Integer id;
     private Integer courseId;
-    private String name;
+    private User currentUser;
     private List<User> studentsInGroup;
     private List<Post> posts;
 
@@ -26,12 +26,12 @@ public abstract class StudyGroup {
         this.courseId = courseId;
     }
 
-    public String getName() {
-        return name;
+    public User getCurrentUser() {
+        return currentUser;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(User user) {
+        this.currentUser = user;
     }
 
     public List<User> getStudentsInGroup() {
