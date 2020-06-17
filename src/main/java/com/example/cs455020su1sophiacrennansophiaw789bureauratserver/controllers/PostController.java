@@ -39,6 +39,7 @@ public class PostController {
         return postService.deletePost(pid);
     }
 
+    
     @GetMapping("/api/studygroups/{studyId}/posts")
     public List<Post> findPostsForStudyGroup(@PathVariable("studyId") Integer studyId) {
         return postService.findPostsForStudyGroup(studyId);
