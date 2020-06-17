@@ -28,8 +28,15 @@ Controllers:
 	Methods:
 		update, create, findAll, findById, delete, findForCourse
 	
-	StudyGroup:
-			endpoint: "/api/courses/{courseId}/studygroups/"
+	AdminStudyGroup:
+		create, findForCourse endpoint: "/api/courses/{courseId}/studygroups/admin"
+		
+		update, findAll, findById, delete endpoint: "/api/studygroups/admin/"
+	
+	StudentStudyGroup:
+		create, findForCourseendpoint: "/api/courses/{courseId}/studygroups/student"
+		
+		update, findAll, findById, delete endpoint: "/api/studygroups/admin/"
 	
 	Post:
 		endpoint: "/api/studygroup/{studyId}/posts/"
