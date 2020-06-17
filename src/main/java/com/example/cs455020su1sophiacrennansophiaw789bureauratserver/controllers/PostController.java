@@ -18,9 +18,9 @@ public class PostController {
         return postService.updatePost(postId, updatedPost);
     }
 
-    @PostMapping("/api/courses/{cid}/posts")
-    public Post createPost(@PathVariable("cid") Integer courseId, @RequestBody Post newPost) {
-        newPost.setCourseId(courseId);
+    @PostMapping("/api/studygroup/{studyId}/posts")
+    public Post createPost(@PathVariable("studyId") Integer studyId, @RequestBody Post newPost) {
+        newPost.setStudyGroupId(studyId);
         return postService.createPost(newPost);
     }
 
@@ -39,8 +39,8 @@ public class PostController {
         return postService.deletePost(pid);
     }
 
-    @GetMapping("/api/courses/{cid}/posts")
-    public List<Post> findPostsForCourse(@PathVariable("cid") Integer cid) {
-        return postService.findPostsForCourse(cid);
+    @GetMapping("/api/studygroups/{studyId}/posts")
+    public List<Post> findPostsForStudyGroup(@PathVariable("studyId") Integer studyId) {
+        return postService.findPostsForStudyGroup(studyId);
     }
 }

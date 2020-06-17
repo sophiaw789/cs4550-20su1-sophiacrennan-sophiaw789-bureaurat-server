@@ -12,9 +12,8 @@ public class User {
     private Integer id;
     private String username;
     private String password;
-    private String email;
     private Boolean admin;
-    private List<StudyGroup> courses; 
+    private List<StudyGroup> studyGroups; 
 
     public Integer getId() {
         return id;
@@ -40,14 +39,6 @@ public class User {
         this.password = password;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public Boolean getAdmin() {
         return admin;
     }
@@ -56,11 +47,11 @@ public class User {
         this.admin = admin;
     }
 
-    public List<StudyGroup> getCourses() {
-        return courses;
+    public List<StudyGroup> getStudyGroups() {
+        return studyGroups;
     }
 
-    public void setCourses(List<StudyGroup> courses) {
-        this.courses = courses;
+    public void setStudyGroups(List<StudyGroup> studyGroups) {
+        this.studyGroups = studyGroups;
     }
 }

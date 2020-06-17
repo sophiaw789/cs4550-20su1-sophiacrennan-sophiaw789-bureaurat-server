@@ -11,11 +11,11 @@ public class PostService {
     List<Post> posts = new ArrayList<Post>();
     {}
 
-    public List<Post> findPostsForCourse(Integer cid) {
+    public List<Post> findPostsForStudyGroup(Integer studyId) {
         List<Post> result = new ArrayList<Post>();
 
         for (Post p : posts) {
-            if (p.getCourseId().equals(cid)) {
+            if (p.getStudyGroupId().equals(studyId)) {
                 result.add(p);
             }
         }

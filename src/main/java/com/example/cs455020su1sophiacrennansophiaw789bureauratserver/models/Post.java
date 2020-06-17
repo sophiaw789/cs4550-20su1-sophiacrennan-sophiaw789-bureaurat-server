@@ -13,7 +13,7 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     */
     private Integer id;
-    private Integer courseId;
+    private Integer studyGroupId;
     private User poster;
     private String title;
     private String text;
@@ -28,12 +28,12 @@ public class Post {
         this.id = id;
     }
 
-    public Integer getCourseId() {
-        return courseId;
+    public Integer getStudyGroupId() {
+        return studyGroupId;
     }
 
-    public void setCourseId(Integer courseId) {
-        this.courseId = courseId;
+    public void setStudyGroupId(Integer studyGroupId) {
+        this.studyGroupId = studyGroupId;
     }
 
     public User getPoster() {

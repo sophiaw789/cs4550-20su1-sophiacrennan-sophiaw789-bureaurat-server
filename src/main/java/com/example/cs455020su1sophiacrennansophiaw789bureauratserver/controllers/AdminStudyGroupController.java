@@ -14,35 +14,35 @@ public class AdminStudyGroupController {
     @Autowired
     AdminStudyGroupService adminStudyService;
 
-    @PutMapping("/api/adminstudys/{asgId}")
-    public AdminStudyGroup updateAdminStudy(@PathVariable("asgId") Integer adminStudyId,
+    @PutMapping("/api/studygroups/{adminId}")
+    public AdminStudyGroup updateAdminStudy(@PathVariable("adminId") Integer adminStudyId,
             @RequestBody AdminStudyGroup updatedAdminStudy) {
         return adminStudyService.updateAdminStudy(adminStudyId, updatedAdminStudy);
     }
 
-    @PostMapping("/api/courses/{cid}/adminstudys")
+    @PostMapping("/api/courses/{cid}/studygroups")
     public AdminStudyGroup createAdminStudy(@PathVariable("cid") Integer cid,
             @RequestBody AdminStudyGroup newAdminStudy) {
         newAdminStudy.setCourseId(cid);
         return adminStudyService.createAdminStudy(newAdminStudy);
     }
 
-    @GetMapping("/api/adminstudys")
+    @GetMapping("/api/studygroups")
     public List<AdminStudyGroup> findAllAdminStudys() {
         return adminStudyService.findAllAdminStudys();
     }
 
-    @GetMapping("/api/adminstudys/{asgId}")
-    public AdminStudyGroup findAdminStudyById(@PathVariable("asgId") Integer asgId) {
-        return adminStudyService.findAdminStudyById(asgId);
+    @GetMapping("/api/studygroups/{adminId}")
+    public AdminStudyGroup findAdminStudyById(@PathVariable("adminId") Integer adminId) {
+        return adminStudyService.findAdminStudyById(adminId);
     }
 
-    @DeleteMapping("/api/adminstudys/{asgId}")
-    public List<AdminStudyGroup> deleteAdminStudy(@PathVariable("asgId") Integer asgId) {
-        return adminStudyService.deleteAdminStudy(asgId);
+    @DeleteMapping("/api/studygroups/{adminId}")
+    public List<AdminStudyGroup> deleteAdminStudy(@PathVariable("adminId") Integer adminId) {
+        return adminStudyService.deleteAdminStudy(adminId);
     }
 
-    @GetMapping("/api/courses/{cid}/adminstudys")
+    @GetMapping("/api/courses/{cid}/studygroups")
     public List<AdminStudyGroup> findAdminStudysForCourse(@PathVariable("cid") Integer cid) {
         return adminStudyService.findAdminStudysForCourse(cid);
     }

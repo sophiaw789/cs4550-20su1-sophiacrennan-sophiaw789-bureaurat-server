@@ -40,7 +40,7 @@ public class UserService {
         List<User> result = new ArrayList<User>();
 
         for (User u : users) {
-            for (StudyGroup s : u.getCourses())
+            for (StudyGroup s : u.getStudyGroups())
                 if (s.getId().equals(studyId)) {
                     result.add(u);
                 }
