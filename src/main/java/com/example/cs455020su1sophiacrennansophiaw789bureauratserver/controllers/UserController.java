@@ -32,7 +32,7 @@ public class UserController {
         User existingUser = service.findUserByUsername(user.getUsername());
         if (existingUser == null) {
             User currentUser = service.createUser(user);
-            session.setAttribute("currentUser", currentUser);
+            session.setAttribute("currentUser", currentUser.toString());
             return currentUser;
         }
         return null;

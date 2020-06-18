@@ -84,13 +84,13 @@ public class UserService {
                 result.add(u);
             }
         }
-        this.users = result;
+        users = result;
         return result;
     }
 
     public User createUser(User newUser) {
         newUser.setId(users.size() * 20 + 21);
-        this.users.add(newUser);
+        users.add(newUser);
         return newUser;
     }
 
