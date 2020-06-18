@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 @RestController
 @CrossOrigin(
         // origins was originally http://localhost:3000
-        origins = "*", allowCredentials = "true")
+        origins = "https://neustudyserver.herokuapp.com", allowCredentials = "true")
 public class UserController {
     @Autowired
     UserService service;
@@ -32,7 +32,8 @@ public class UserController {
         User existingUser = service.findUserByUsername(user.getUsername());
         if (existingUser == null) {
             User currentUser = service.createUser(user);
-            session.setAttribute("currentUser", currentUser.toString());
+            session.setAttribute("currentUser", currentUser);
+            System.out.print(session.getAttribute("currentUser"));
             return currentUser;
         }
         return null;
