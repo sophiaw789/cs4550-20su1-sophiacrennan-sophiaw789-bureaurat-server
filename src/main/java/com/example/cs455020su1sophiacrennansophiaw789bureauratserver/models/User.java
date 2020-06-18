@@ -21,6 +21,18 @@ public class User {
     private String role;
     private List<Integer> studyGroups;
 
+    public User(int id, String firstName, String lastName, String username, 
+        String password, String email, String role, List<Integer> studyGroups) {
+        this.username = username;
+        this.password = password;
+		this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.role = role;
+        this.id = id;
+        this.studyGroups = studyGroups;
+	}
+
     /*
      * @OneToMany(mappedBy="user") private List<Post> posts;
      * 
