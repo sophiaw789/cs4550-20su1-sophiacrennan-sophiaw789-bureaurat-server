@@ -17,14 +17,12 @@ public class StudyGroupController {
 
     @PutMapping("/api/studygroups/{studentId}")
     public StudyGroup updateStudentStudy(@PathVariable("studentId") Integer studentStudyId,
-                                         @RequestBody StudyGroup updatedStudentStudy) {
+            @RequestBody StudyGroup updatedStudentStudy) {
         return studentStudyService.updateStudentStudy(studentStudyId, updatedStudentStudy);
     }
 
-    @PostMapping("/api/courses/{cid}/studygroups/")
-    public StudyGroup createStudentStudy(@PathVariable("cid") Integer cid,
-            @RequestBody StudyGroup newStudentStudy) {
-        newStudentStudy.setCourseId(cid);
+    @PostMapping("/api/studygroups/")
+    public StudyGroup createStudentStudy(@RequestBody StudyGroup newStudentStudy) {
         return studentStudyService.createStudentStudy(newStudentStudy);
     }
 
@@ -41,10 +39,5 @@ public class StudyGroupController {
     @DeleteMapping("/api/studygroups/{studentId}")
     public List<StudyGroup> deleteStudentStudy(@PathVariable("studentId") Integer studentId) {
         return studentStudyService.deleteStudentStudy(studentId);
-    }
-
-    @GetMapping("/api/courses/{cid}/studygroups")
-    public List<StudyGroup> findStudentStudysForCourse(@PathVariable("cid") Integer cid) {
-        return studentStudyService.findStudentStudysForCourse(cid);
     }
 }
