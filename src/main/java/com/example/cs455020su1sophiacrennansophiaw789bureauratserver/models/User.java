@@ -7,8 +7,8 @@ import java.util.List;
 //@Entity
 //@Table(name = "users")
 public class User {
-    //@Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    // @Id
+    // @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String username;
     private String password;
@@ -16,7 +16,7 @@ public class User {
     private String lastName;
     private String email;
     private String role;
-    private List<Integer> studyGroups; 
+    private List<Integer> studyGroups;
 
     public Integer getId() {
         return id;

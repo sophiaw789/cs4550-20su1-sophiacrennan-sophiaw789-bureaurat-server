@@ -21,12 +21,12 @@ public class StudyGroupController {
         return studentStudyService.updateStudentStudy(studentStudyId, updatedStudentStudy);
     }
 
-    @PostMapping("/api/studygroups/")
+    @PostMapping("/api/studygroups")
     public StudyGroup createStudentStudy(@RequestBody StudyGroup newStudentStudy) {
         return studentStudyService.createStudentStudy(newStudentStudy);
     }
 
-    @GetMapping("/api/studygroups/")
+    @GetMapping("/api/studygroups")
     public List<StudyGroup> findAllStudentStudys() {
         return studentStudyService.findAllStudentStudys();
     }
