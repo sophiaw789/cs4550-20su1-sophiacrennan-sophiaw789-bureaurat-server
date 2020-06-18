@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 @RestController
 @CrossOrigin(
         // origins was originally http://localhost:3000
-        origins = "https://neustudyserver.herokuapp.com", allowCredentials = "true")
+        origins = "http://localhost:3000", allowCredentials = "true")
 public class UserController {
     @Autowired
     UserService service;
