@@ -21,6 +21,7 @@ Controllers:
 		These Post Mapping methods return the currentUser:
 			register: "/api/register"
 			login: "/api/login"
+		This is the Get Mapping method to retrieve the currentUser:
 			profile: "/api/profile"
 		Void Method:
 			logout: "/api/logout"
