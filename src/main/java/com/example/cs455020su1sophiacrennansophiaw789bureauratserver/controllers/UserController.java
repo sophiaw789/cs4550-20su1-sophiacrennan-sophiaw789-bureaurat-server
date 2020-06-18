@@ -33,7 +33,6 @@ public class UserController {
         if (existingUser == null) {
             User currentUser = service.createUser(user);
             session.setAttribute("currentUser", currentUser);
-            System.out.print(session.getAttribute("currentUser"));
             return currentUser;
         }
         return null;
