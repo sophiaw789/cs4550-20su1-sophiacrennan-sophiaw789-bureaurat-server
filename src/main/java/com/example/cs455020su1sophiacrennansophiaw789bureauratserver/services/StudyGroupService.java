@@ -1,21 +1,22 @@
 package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.services;
 
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.StudentStudyGroup;
+import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.StudyGroup;
+import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.User;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class StudentStudyGroupService {
-    List<StudentStudyGroup> studentStudys = new ArrayList<StudentStudyGroup>();
-    {
-    }
+public class StudyGroupService {
+    List<StudyGroup> studentStudys = new ArrayList<StudyGroup>();
 
-    public List<StudentStudyGroup> findStudentStudysForCourse(Integer cid) {
-        List<StudentStudyGroup> result = new ArrayList<StudentStudyGroup>();
 
-        for (StudentStudyGroup w : studentStudys) {
+    public List<StudyGroup> findStudentStudysForCourse(Integer cid) {
+        List<StudyGroup> result = new ArrayList<StudyGroup>();
+
+        for (StudyGroup w : studentStudys) {
             if (w.getCourseId().equals(cid)) {
                 result.add(w);
             }
@@ -24,8 +25,8 @@ public class StudentStudyGroupService {
         return result;
     }
 
-    public StudentStudyGroup findStudentStudyById(Integer studentStudyId) {
-        for (StudentStudyGroup w : studentStudys) {
+    public StudyGroup findStudentStudyById(Integer studentStudyId) {
+        for (StudyGroup w : studentStudys) {
             if (w.getId().equals(studentStudyId)) {
                 return w;
             }
@@ -33,13 +34,13 @@ public class StudentStudyGroupService {
         return null;
     }
 
-    public List<StudentStudyGroup> findAllStudentStudys() {
+    public List<StudyGroup> findAllStudentStudys() {
         return studentStudys;
     }
 
-    public List<StudentStudyGroup> deleteStudentStudy(Integer studentStudyId) {
-        List<StudentStudyGroup> result = new ArrayList<StudentStudyGroup>();
-        for (StudentStudyGroup w : studentStudys) {
+    public List<StudyGroup> deleteStudentStudy(Integer studentStudyId) {
+        List<StudyGroup> result = new ArrayList<StudyGroup>();
+        for (StudyGroup w : studentStudys) {
             if (!w.getId().equals(studentStudyId)) {
                 result.add(w);
             }
@@ -48,13 +49,13 @@ public class StudentStudyGroupService {
         return result;
     }
 
-    public StudentStudyGroup createStudentStudy(StudentStudyGroup newStudentStudy) {
+    public StudyGroup createStudentStudy(StudentStudyGroup newStudentStudy) {
         newStudentStudy.setId(studentStudys.size() * 20 + 21);
         this.studentStudys.add(newStudentStudy);
         return newStudentStudy;
     }
 
-    public StudentStudyGroup updateStudentStudy(Integer studentStudyId, StudentStudyGroup updatedStudentStudy) {
+    public StudyGroup updateStudentStudy(Integer studentStudyId, StudentStudyGroup updatedStudentStudy) {
         for (int i = 0; i < studentStudys.size(); i++) {
             if (studentStudys.get(i).getId().equals(studentStudyId)) {
                 updatedStudentStudy.setId(studentStudyId);

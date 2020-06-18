@@ -3,50 +3,53 @@ package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models;
 import java.util.List;
 
 // abstract or interface?
-public abstract class StudyGroup {
-    private Integer id;
-    private Integer courseId;
-    private User currentUser;
-    private List<User> studentsInGroup;
-    private List<Post> posts;
+public class StudyGroup {
+  private Integer id;
+  private Integer courseId;
 
-    public Integer getId() {
-        return id;
-    }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  private Integer currentUserId;
+  private List<Integer> studentsInGroupIds;
+  private List<Integer> postsIds;
 
-    public Integer getCourseId() {
-        return courseId;
-    }
+  public Integer getId() {
+    return id;
+  }
 
-    public void setCourseId(Integer courseId) {
-        this.courseId = courseId;
-    }
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-    public User getCurrentUser() {
-        return currentUser;
-    }
+  public Integer getCourseId() {
+    return courseId;
+  }
 
-    public void setName(User user) {
-        this.currentUser = user;
-    }
+  public void setCourseId(Integer courseId) {
+    this.courseId = courseId;
+  }
 
-    public List<User> getStudentsInGroup() {
-        return studentsInGroup;
-    }
 
-    public void setStudentsInGroup(List<User> studentsInGroup) {
-        this.studentsInGroup = studentsInGroup;
-    }
+  public Integer getCurrentUserId() {
+    return currentUserId;
+  }
 
-    public List<Post> getPosts() {
-        return posts;
-    }
+  public void setCurrentUserId(Integer currentUserId) {
+    this.currentUserId = currentUserId;
+  }
 
-    public void setPosts(List<Post> posts) {
-        this.posts = posts;
-    }
+  public List<Integer> getStudentsInGroupIds() {
+    return studentsInGroupIds;
+  }
+
+  public void setStudentsInGroupIds(List<Integer> studentsInGroupIds) {
+    this.studentsInGroupIds = studentsInGroupIds;
+  }
+
+  public List<Integer> getPostsIds() {
+    return postsIds;
+  }
+
+  public void setPostsIds(List<Integer> postsIds) {
+    this.postsIds = postsIds;
+  }
 }

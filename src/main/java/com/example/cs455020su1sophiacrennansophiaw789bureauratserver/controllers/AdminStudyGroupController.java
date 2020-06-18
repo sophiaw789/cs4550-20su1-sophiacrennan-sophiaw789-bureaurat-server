@@ -1,3 +1,4 @@
+/*
 package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.controllers;
 
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.AdminStudyGroup;
@@ -47,3 +48,4 @@ public class AdminStudyGroupController {
         return adminStudyService.findAdminStudysForCourse(cid);
     }
 }
+ */
