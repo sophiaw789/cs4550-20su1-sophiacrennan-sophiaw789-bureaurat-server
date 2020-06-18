@@ -17,9 +17,14 @@ public class UserController {
 
     @PostMapping("/api/register")
     public User register(@RequestBody User user, HttpSession session) {
-        User currentUser = service.createUser(user);
+        User currentUser = this.createUser(user);
         session.setAttribute("currentUser", currentUser);
         return currentUser;
+    }
+
+    @PostMapping("/api/users")
+    public User createUser(@RequestBody User user) {
+        return service.createUser(user);
     }
 
     @PostMapping("/api/login")
