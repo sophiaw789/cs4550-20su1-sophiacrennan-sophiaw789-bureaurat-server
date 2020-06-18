@@ -6,11 +6,17 @@ import java.util.List;
 public class StudyGroup {
   private Integer id;
   private Integer courseId;
-
-
   private Integer currentUserId;
   private List<Integer> studentsInGroupIds;
   private List<Integer> postsIds;
+
+  public StudyGroup(Integer id, Integer courseId, Integer currentUserId, List<Integer> studentsInGroupIds, List<Integer> postsIds) {
+    this.id = id;
+    this.courseId = courseId;
+    this.currentUserId = currentUserId;
+    this.studentsInGroupIds = studentsInGroupIds;
+    this.postsIds = postsIds;
+  }
 
   public Integer getId() {
     return id;

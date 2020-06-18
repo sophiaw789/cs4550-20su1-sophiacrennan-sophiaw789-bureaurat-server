@@ -1,4 +1,4 @@
-package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models;
+//package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models;
 /*
 import java.util.List;
 import javax.persistence.*;
@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "studyGroup")
 */
-public class StudentStudyGroup extends StudyGroup{
+//public class StudentStudyGroup extends StudyGroup{
 /*
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,4 +49,4 @@ public class StudentStudyGroup extends StudyGroup{
         this.posts = posts;
     }
     */
-}
+//}

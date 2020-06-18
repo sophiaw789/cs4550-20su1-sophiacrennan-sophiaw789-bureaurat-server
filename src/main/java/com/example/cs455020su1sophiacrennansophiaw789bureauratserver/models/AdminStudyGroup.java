@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "studyGroup")
 */
-public class AdminStudyGroup extends StudyGroup{
+//public class AdminStudyGroup extends StudyGroup{
     /*
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,4 +47,4 @@ public class AdminStudyGroup extends StudyGroup{
         this.posts = posts;
     }
     */
-}
+//}

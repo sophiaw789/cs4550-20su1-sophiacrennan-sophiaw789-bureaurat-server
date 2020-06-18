@@ -1,6 +1,6 @@
 package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.controllers;
 
-import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.StudentStudyGroup;
+import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.StudyGroup;
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.StudyGroup;
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.services.StudyGroupService;
 
@@ -17,13 +17,13 @@ public class StudyGroupController {
 
     @PutMapping("/api/studygroups/{studentId}")
     public StudyGroup updateStudentStudy(@PathVariable("studentId") Integer studentStudyId,
-                                         @RequestBody StudentStudyGroup updatedStudentStudy) {
+                                         @RequestBody StudyGroup updatedStudentStudy) {
         return studentStudyService.updateStudentStudy(studentStudyId, updatedStudentStudy);
     }
 
     @PostMapping("/api/courses/{cid}/studygroups/")
     public StudyGroup createStudentStudy(@PathVariable("cid") Integer cid,
-            @RequestBody StudentStudyGroup newStudentStudy) {
+            @RequestBody StudyGroup newStudentStudy) {
         newStudentStudy.setCourseId(cid);
         return studentStudyService.createStudentStudy(newStudentStudy);
     }
