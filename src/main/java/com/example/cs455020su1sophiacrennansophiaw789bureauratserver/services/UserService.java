@@ -11,25 +11,41 @@ import java.util.List;
 
 @Service
 public class UserService {
-    /*
-     * @Autowired UserRepository repository;
-     * 
-     * 
-     * public User createUser(User user) { return repository.save(user); }
-     * 
-     * public User findUserById(Integer id) { return repository.findUserById(id); }
-     * 
-     * public User findUserByCredentials(String username, String password) { return
-     * repository.findUserByCredentials(username, password); }
-     */
+//    @Autowired
+//    UserRepository repository;
+/*
+    public User createUser(User user) {
+        return repository.save(user);
+    }
 
+    public User findUserById(Integer id) {
+        return repository.findUserById(id);
+    }
+
+    public User findUserByCredentials(String username, String password) {
+        return repository.findUserByCredentials(username, password);
+    }
+
+    public User findUserByUsername(String username) {
+        return repository.findUserByUsername(username);
+    }
+*/
     List<User> users = new ArrayList<User>();
-    {}
+    {
+    }
 
     public User findUserByCredentials(String username, String password) {
         for (User u : users) {
-            if (u.getUsername().equals(username) 
-                && u.getPassword().equals(password)) {
+            if (u.getUsername().equals(username) && u.getPassword().equals(password)) {
+                return u;
+            }
+        }
+        return null;
+    }
+
+    public User findUserByUsername(String username) {
+        for (User u : users) {
+            if (u.getUsername().equals(username)) {
                 return u;
             }
         }

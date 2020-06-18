@@ -1,30 +1,43 @@
 package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models;
 
 import java.util.List;
+
 /*
 import javax.persistence.*;
 
 @Entity
 @Table(name = "posts")
+@IdClass(PostId.class)
 */
 public class Post {
     /*
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    */
-    private Integer id;
+     * @Id
+     */
+    private long id;
+    // @Id
     private Integer studyGroupId;
-    private User poster;
+    private long posterId;
     private String title;
     private String text;
     private String date;
     private List<Comment> comments;
 
-    public Integer getId() {
+    /*
+     * @ManyToOne
+     * 
+     * @PrimaryKeyJoinColumn(name="user", referencedColumnName="ID") private User
+     * poster;
+     * 
+     * @ManyToOne
+     * 
+     * @PrimaryKeyJoinColumn(name="studyGroup", referencedColumnName="ID") private
+     * StudyGroup studyGroup;
+     */
+    public long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -36,12 +49,12 @@ public class Post {
         this.studyGroupId = studyGroupId;
     }
 
-    public User getPoster() {
-        return poster;
+    public long getPosterId() {
+        return posterId;
     }
 
-    public void setPoster(User poster) {
-        this.poster = poster;
+    public void setPosterId(long posterId) {
+        this.posterId = posterId;
     }
 
     public String getTitle() {

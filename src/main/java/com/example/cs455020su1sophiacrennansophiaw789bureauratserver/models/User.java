@@ -3,13 +3,16 @@ package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models;
 import java.util.List;
 
 //import javax.persistence.*;
-
-//@Entity
-//@Table(name = "users")
+/*
+@Entity
+@Table(name = "users")
+*/
 public class User {
-    // @Id
-    // @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    /*
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    */
+    private int id;
     private String username;
     private String password;
     private String firstName;
@@ -17,6 +20,21 @@ public class User {
     private String email;
     private String role;
     private List<Integer> studyGroups;
+
+    /*
+     * @OneToMany(mappedBy="user") private List<Post> posts;
+     * 
+     * @ManyToMany
+     * 
+     * @JoinTable( name="enrollments", joinColumns=@JoinColumn(name="USER_ID",
+     * referencedColumnName="ID"), inverseJoinColumns=@JoinColumn(name="STUDYGROUP_ID",
+     * referencedColumnName="ID")) private List<StudyGroup> studyGroups;
+     */
+
+    // many to many in SQL
+    // users = {u1, u2, u3}
+    // enrollments = {(u1, s1, 'A', 5), (u2, s1, 'A-', 4), (u2, s3), (u3, s3)}
+    // sections = {s1, s2, s3}
 
     public Integer getId() {
         return id;

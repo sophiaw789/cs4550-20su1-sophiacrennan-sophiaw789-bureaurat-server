@@ -1,7 +1,7 @@
 package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.services;
 
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.StudyGroup;
-import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.User;
+//import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.User;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ public class StudyGroupService {
 
     }
 
-
+/*
     public List<StudyGroup> findStudentStudysForCourse(Integer cid) {
         List<StudyGroup> result = new ArrayList<StudyGroup>();
 
@@ -29,6 +29,7 @@ public class StudyGroupService {
 
         return result;
     }
+    */
 
     public StudyGroup findStudentStudyById(Integer studentStudyId) {
         for (StudyGroup w : studentStudys) {

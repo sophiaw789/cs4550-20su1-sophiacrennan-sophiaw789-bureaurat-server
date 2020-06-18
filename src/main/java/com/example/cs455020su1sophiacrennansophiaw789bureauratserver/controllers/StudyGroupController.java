@@ -1,7 +1,6 @@
 package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.controllers;
 
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.StudyGroup;
-import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.StudyGroup;
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.services.StudyGroupService;
 
 import org.springframework.beans.factory.annotation.Autowired;

@@ -16,21 +16,26 @@ import javax.servlet.http.HttpSession;
 public class UserController {
     @Autowired
     UserService service;
-    /*
-     * @PostMapping("/api/users") public User createUser(@RequestBody User user) {
-     * return service.createUser(user); }
-     */
 
     @GetMapping("/api/users")
     public List<User> findAllUsers() {
         return service.findAllUsers();
     }
 
+    @GetMapping("/api/users/{userId}")
+    public User findUserById(@PathVariable("userId") Integer id) {
+        return service.findUserById(id);
+    }
+
     @PostMapping("/api/register")
     public User register(@RequestBody User user, HttpSession session) {
-        User currentUser = service.createUser(user);
-        session.setAttribute("currentUser", currentUser);
-        return currentUser;
+        User existingUser = service.findUserByUsername(user.getUsername());
+        if (existingUser == null) {
+            User currentUser = service.createUser(user);
+            session.setAttribute("currentUser", currentUser);
+            return currentUser;
+        }
+        return null;
     }
 
     @PostMapping("/api/login")
@@ -40,7 +45,7 @@ public class UserController {
         return currentUser;
     }
 
-    @PostMapping("/api/profile")
+    @GetMapping("/api/profile")
     public User profile(HttpSession session) {
         User currentUser = (User) session.getAttribute("currentUser");
         return currentUser;
