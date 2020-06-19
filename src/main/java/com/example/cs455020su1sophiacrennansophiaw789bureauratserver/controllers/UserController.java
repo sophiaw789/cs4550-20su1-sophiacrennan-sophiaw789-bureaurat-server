@@ -56,15 +56,19 @@ public class UserController {
         session.invalidate();
     }
 
-    @DeleteMapping("/api/users/{userId}")
-    public List<User> deleteUser(@PathVariable("userId") Integer id) {
+    @DeleteMapping("/api/user/{userId}")
+    public List<User> deleteUser(@PathVariable("userId") Integer id, HttpSession session) {
+        User currentUser = (User) session.getAttribute("currentUser");
+        if (id == currentUser.getId()) {
+            session.invalidate();
+        }
+
         return service.deleteUser(id);
     }
 
-    @PutMapping("/api/users/{userId}")
+    @PutMapping("/api/user/{userId}")
     public User updateUser(@PathVariable("userId") Integer userId, @RequestBody User updatedUser, HttpSession session) {
-        User currentUser = service.findUserById(userId);
-        session.setAttribute("currentUser", currentUser);
+        session.setAttribute("currentUser", updatedUser);
         return service.updateUser(userId, updatedUser);
     }
 }
