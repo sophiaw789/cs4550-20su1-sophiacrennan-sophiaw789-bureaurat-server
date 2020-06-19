@@ -12,7 +12,7 @@ public class Comment {
     */
     private Integer id;
     private Integer postId;
-    private User commenter;
+    private Integer commenterId;
     private String text;
     private String date;
 
@@ -32,12 +32,12 @@ public class Comment {
         this.postId = postId;
     }
 
-    public User getCommenter() {
-        return commenter;
+    public Integer getCommenterId() {
+        return commenterId;
     }
 
-    public void setCommenter(User commenter) {
-        this.commenter = commenter;
+    public void setCommenterId(Integer commenterId) {
+        this.commenterId = commenterId;
     }
 
     public String getText() {
