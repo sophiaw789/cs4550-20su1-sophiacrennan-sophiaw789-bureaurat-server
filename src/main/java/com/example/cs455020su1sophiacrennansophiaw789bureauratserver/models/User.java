@@ -25,8 +25,8 @@ public class User {
     private String location;
     private List<Integer> studyGroups;
 
-    public User(int id, String firstName, String lastName, String username, String password, String email, String role,
-            List<Integer> studyGroups) {
+    public User(int id, String username, String password, String email, String firstName, String lastName,
+        String role, String bio, String location, List<Integer> studyGroups) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
