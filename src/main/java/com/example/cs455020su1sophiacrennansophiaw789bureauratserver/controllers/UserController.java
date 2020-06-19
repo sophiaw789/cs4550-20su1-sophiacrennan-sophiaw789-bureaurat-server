@@ -62,9 +62,9 @@ public class UserController {
     }
 
     @PutMapping("/api/users/{userId}")
-    public User updateWidget(
-            @PathVariable("userId") Integer userId,
-            @RequestBody User updatedUser) {
+    public User updateUser(@PathVariable("userId") Integer userId, @RequestBody User updatedUser, HttpSession session) {
+        User currentUser = service.findUserById(userId);
+        session.setAttribute("currentUser", currentUser);
         return service.updateUser(userId, updatedUser);
     }
 }
