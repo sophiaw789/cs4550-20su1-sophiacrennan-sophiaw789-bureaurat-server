@@ -25,14 +25,6 @@ public class UserService {
      * repository.findUserByUsername(username); }
      */
     static List<User> users = new ArrayList<User>();
-    static String[] usernames = { "alice", "bob", "charlie" };
-    {
-        for (String username : usernames) {
-            User user = new User(123, "asdfg", "Alice", "Wonderland", username, "@gmail", "STUDENT",
-                    new ArrayList<Integer>());
-            users.add(user);
-        }
-    }
 
     public User findUserByCredentials(String username, String password) {
         for (User u : users) {
