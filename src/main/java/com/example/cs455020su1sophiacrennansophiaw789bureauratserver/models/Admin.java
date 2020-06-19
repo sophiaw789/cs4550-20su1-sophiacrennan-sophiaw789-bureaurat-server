@@ -4,9 +4,9 @@ import java.util.List;
 
 public class Admin extends User {
 
-    public Admin(int id, String firstName, String lastName, String username, String password, String email, String role,
-            List<Integer> studyGroups) {
-        super(id, firstName, lastName, username, password, email, role, studyGroups);
+    public Admin(int id, String username, String password, String email, String firstName, String lastName, String role,
+            String bio, String location, List<Integer> studyGroups) {
+        super(id, username, password, email, firstName, lastName, role, bio, location, studyGroups);
     }
     
 }
