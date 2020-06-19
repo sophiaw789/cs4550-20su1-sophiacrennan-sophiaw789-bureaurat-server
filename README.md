@@ -40,7 +40,7 @@ Controllers:
 		update, findAll, findById, delete endpoint: "/api/studygroups/admin/"
 	
 	Post:
-		endpoint: "/api/studygroup/{studyId}/posts/"
+		endpoint: "/api/studygroups/{studyId}/posts/"
 		
 	Comment:
 		endpoint: "/api/posts/{postId}/comments/"

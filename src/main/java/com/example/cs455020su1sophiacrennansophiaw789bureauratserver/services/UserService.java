@@ -89,7 +89,6 @@ public class UserService {
     }
 
     public User createUser(User newUser) {
-        newUser.setId(users.size() * 20 + 21);
         users.add(newUser);
         return newUser;
     }

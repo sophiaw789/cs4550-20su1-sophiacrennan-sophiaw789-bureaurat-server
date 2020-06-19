@@ -18,7 +18,7 @@ public class PostController {
         return postService.updatePost(postId, updatedPost);
     }
 
-    @PostMapping("/api/studygroup/{studyId}/posts")
+    @PostMapping("/api/studygroups/{studyId}/posts")
     public Post createPost(@PathVariable("studyId") Integer studyId, @RequestBody Post newPost) {
         newPost.setStudyGroupId(studyId);
         return postService.createPost(newPost);

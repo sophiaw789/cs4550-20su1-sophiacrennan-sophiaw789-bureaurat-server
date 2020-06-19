@@ -6,12 +6,14 @@ import java.util.List;
 /*
 @Entity
 @Table(name = "users")
+@IdClass(ReviewId.class)
 */
 public class User {
     /*
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    */
+     * @Id
+     * 
+     * @GeneratedValue(strategy = GenerationType.IDENTITY)
+     */
     private int id;
     private String username;
     private String password;
@@ -21,17 +23,17 @@ public class User {
     private String role;
     private List<Integer> studyGroups;
 
-    public User(int id, String firstName, String lastName, String username, 
-        String password, String email, String role, List<Integer> studyGroups) {
+    public User(int id, String firstName, String lastName, String username, String password, String email, String role,
+            List<Integer> studyGroups) {
         this.username = username;
         this.password = password;
-		this.firstName = firstName;
+        this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.role = role;
         this.id = id;
         this.studyGroups = studyGroups;
-	}
+    }
 
     /*
      * @OneToMany(mappedBy="user") private List<Post> posts;
@@ -39,7 +41,8 @@ public class User {
      * @ManyToMany
      * 
      * @JoinTable( name="enrollments", joinColumns=@JoinColumn(name="USER_ID",
-     * referencedColumnName="ID"), inverseJoinColumns=@JoinColumn(name="STUDYGROUP_ID",
+     * referencedColumnName="ID"),
+     * inverseJoinColumns=@JoinColumn(name="STUDYGROUP_ID",
      * referencedColumnName="ID")) private List<StudyGroup> studyGroups;
      */
 
@@ -110,5 +113,18 @@ public class User {
 
     public void setStudyGroups(List<Integer> studyGroups) {
         this.studyGroups = studyGroups;
+    }
+
+    public int hashCode() {
+        return id + username.hashCode() + password.hashCode() + email.hashCode();
+    }
+
+    public boolean equals(Object object) {
+        if (object instanceof User) {
+            User otherId = (User) object;
+            return (otherId.id == this.id) && (otherId.username == this.username)
+                    && (otherId.password == this.password) && (otherId.email == this.email);
+                }
+        return false;
     }
 }

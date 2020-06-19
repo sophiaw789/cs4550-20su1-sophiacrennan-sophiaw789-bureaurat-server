@@ -55,4 +55,9 @@ public class UserController {
     public void logout(HttpSession session) {
         session.invalidate();
     }
+
+    @DeleteMapping("/api/users/{userId}")
+    public List<User> deleteUser(@PathVariable("userId") Integer id) {
+        return service.deleteUser(id);
+    }
 }
