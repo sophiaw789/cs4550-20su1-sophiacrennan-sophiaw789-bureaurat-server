@@ -114,7 +114,7 @@ public class User {
     public void setStudyGroups(List<Integer> studyGroups) {
         this.studyGroups = studyGroups;
     }
-
+/*
     public int hashCode() {
         return id + username.hashCode() + password.hashCode() + email.hashCode();
     }
@@ -127,4 +127,5 @@ public class User {
                 }
         return false;
     }
+    */
 }
