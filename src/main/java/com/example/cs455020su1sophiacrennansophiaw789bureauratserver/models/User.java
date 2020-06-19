@@ -24,6 +24,7 @@ public class User {
     private String bio;
     private String location;
     private List<Integer> studyGroups;
+    
 
     public User(int id, String username, String password, String email, String firstName, String lastName,
         String role, String bio, String location, List<Integer> studyGroups) {
