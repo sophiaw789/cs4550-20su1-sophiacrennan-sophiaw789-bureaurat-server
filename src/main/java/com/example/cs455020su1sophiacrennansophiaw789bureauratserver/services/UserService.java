@@ -81,6 +81,7 @@ public class UserService {
     }
 
     public User createUser(User newUser) {
+        newUser.setId(newUser.hashCode())
         users.add(newUser);
         return newUser;
     }
