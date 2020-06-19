@@ -24,7 +24,7 @@ public class User {
     private String bio;
     private String location;
     private List<Integer> studyGroups;
-    
+
 
     public User(int id, String username, String password, String email, String firstName, String lastName,
         String role, String bio, String location, List<Integer> studyGroups) {
@@ -34,6 +34,8 @@ public class User {
         this.lastName = lastName;
         this.email = email;
         this.role = role;
+        this.bio = bio;
+        this.location = location;
         this.id = id;
         this.studyGroups = studyGroups;
     }
