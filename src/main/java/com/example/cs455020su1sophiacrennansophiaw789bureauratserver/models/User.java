@@ -21,6 +21,8 @@ public class User {
     private String lastName;
     private String email;
     private String role;
+    private String bio;
+    private String location;
     private List<Integer> studyGroups;
 
     public User(int id, String firstName, String lastName, String username, String password, String email, String role,
@@ -113,6 +115,22 @@ public class User {
 
     public void setStudyGroups(List<Integer> studyGroups) {
         this.studyGroups = studyGroups;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 /*
     public int hashCode() {

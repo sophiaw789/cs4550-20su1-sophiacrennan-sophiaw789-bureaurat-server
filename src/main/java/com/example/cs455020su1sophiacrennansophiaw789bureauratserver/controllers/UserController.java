@@ -60,4 +60,11 @@ public class UserController {
     public List<User> deleteUser(@PathVariable("userId") Integer id) {
         return service.deleteUser(id);
     }
+
+    @PutMapping("/api/users/{userId}")
+    public User updateWidget(
+            @PathVariable("userId") Integer userId,
+            @RequestBody User updatedUser) {
+        return service.updateUser(userId, updatedUser);
+    }
 }
