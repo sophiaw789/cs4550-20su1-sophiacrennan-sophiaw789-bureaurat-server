@@ -14,7 +14,6 @@ public class Comment {
     private Integer postId;
     private Integer commenterId;
     private String text;
-    private String date;
 
     public Integer getId() {
         return id;
@@ -46,13 +45,5 @@ public class Comment {
 
     public void setText(String text) {
         this.text = text;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
     }
 }

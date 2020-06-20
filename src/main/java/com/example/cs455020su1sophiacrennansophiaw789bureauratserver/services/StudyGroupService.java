@@ -9,59 +9,56 @@ import java.util.List;
 
 @Service
 public class StudyGroupService {
-    List<StudyGroup> studentStudys = new ArrayList<StudyGroup>();
-    {}
-
-/*
-    public List<StudyGroup> findStudentStudysForCourse(Integer cid) {
-        List<StudyGroup> result = new ArrayList<StudyGroup>();
-
-        for (StudyGroup w : studentStudys) {
-            if (w.getCourseId().equals(cid)) {
-                result.add(w);
-            }
-        }
-
-        return result;
+    List<StudyGroup> studyGroups = new ArrayList<StudyGroup>();
+    {
     }
-    */
 
-    public StudyGroup findStudentStudyById(Integer studentStudyId) {
-        for (StudyGroup w : studentStudys) {
-            if (w.getId().equals(studentStudyId)) {
+    /*
+     * public List<StudyGroup> findStudentStudysForCourse(Integer cid) {
+     * List<StudyGroup> result = new ArrayList<StudyGroup>();
+     * 
+     * for (StudyGroup w : studentStudys) { if (w.getCourseId().equals(cid)) {
+     * result.add(w); } }
+     * 
+     * return result; }
+     */
+
+    public StudyGroup findStudyGroupById(Integer studyGroupId) {
+        for (StudyGroup w : studyGroups) {
+            if (w.getId().equals(studyGroupId)) {
                 return w;
             }
         }
         return null;
     }
 
-    public List<StudyGroup> findAllStudentStudys() {
-        return studentStudys;
+    public List<StudyGroup> findAllStudyGroups() {
+        return studyGroups;
     }
 
-    public List<StudyGroup> deleteStudentStudy(Integer studentStudyId) {
+    public List<StudyGroup> deleteStudyGroup(Integer studyGroupId) {
         List<StudyGroup> result = new ArrayList<StudyGroup>();
-        for (StudyGroup w : studentStudys) {
-            if (!w.getId().equals(studentStudyId)) {
+        for (StudyGroup w : studyGroups) {
+            if (!w.getId().equals(studyGroupId)) {
                 result.add(w);
             }
         }
-        this.studentStudys = result;
+        this.studyGroups = result;
         return result;
     }
 
-    public StudyGroup createStudentStudy(StudyGroup newStudentStudy) {
-        newStudentStudy.setId(studentStudys.size() * 20 + 21);
-        this.studentStudys.add(newStudentStudy);
-        return newStudentStudy;
+    public StudyGroup createStudyGroup(StudyGroup newStudyGroup) {
+        newStudyGroup.setId(studyGroups.size() * 20 + 21);
+        this.studyGroups.add(newStudyGroup);
+        return newStudyGroup;
     }
 
-    public StudyGroup updateStudentStudy(Integer studentStudyId, StudyGroup updatedStudentStudy) {
-        for (int i = 0; i < studentStudys.size(); i++) {
-            if (studentStudys.get(i).getId().equals(studentStudyId)) {
-                updatedStudentStudy.setId(studentStudyId);
-                studentStudys.set(i, updatedStudentStudy);
-                return updatedStudentStudy;
+    public StudyGroup updateStudyGroup(Integer studyGroupId, StudyGroup updatedStudyGroup) {
+        for (int i = 0; i < studyGroups.size(); i++) {
+            if (studyGroups.get(i).getId().equals(studyGroupId)) {
+                updatedStudyGroup.setId(studyGroupId);
+                studyGroups.set(i, updatedStudyGroup);
+                return updatedStudyGroup;
             }
         }
         return null;

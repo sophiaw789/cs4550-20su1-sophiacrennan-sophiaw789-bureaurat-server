@@ -12,31 +12,31 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class StudyGroupController {
     @Autowired
-    StudyGroupService studentStudyService;
+    StudyGroupService service;
 
-    @PutMapping("/api/studygroups/{studentId}")
-    public StudyGroup updateStudentStudy(@PathVariable("studentId") Integer studentStudyId,
-            @RequestBody StudyGroup updatedStudentStudy) {
-        return studentStudyService.updateStudentStudy(studentStudyId, updatedStudentStudy);
+    @PutMapping("/api/studygroups/{studyGroupId}")
+    public StudyGroup updateStudyGroup(@PathVariable("studyGroupId") Integer studyGroupId,
+            @RequestBody StudyGroup updatedStudyGroup) {
+        return service.updateStudyGroup(studyGroupId, updatedStudyGroup);
     }
 
     @PostMapping("/api/studygroups")
-    public StudyGroup createStudentStudy(@RequestBody StudyGroup newStudentStudy) {
-        return studentStudyService.createStudentStudy(newStudentStudy);
+    public StudyGroup createStudyGroup(@RequestBody StudyGroup newStudyGroup) {
+        return service.createStudyGroup(newStudyGroup);
     }
 
     @GetMapping("/api/studygroups")
-    public List<StudyGroup> findAllStudentStudys() {
-        return studentStudyService.findAllStudentStudys();
+    public List<StudyGroup> findAllStudyGroups() {
+        return service.findAllStudyGroups();
     }
 
-    @GetMapping("/api/studygroups/{groupId}")
-    public StudyGroup findStudentStudyById(@PathVariable("groupId") Integer studentId) {
-        return studentStudyService.findStudentStudyById(studentId);
+    @GetMapping("/api/studygroups/{studyGroupId}")
+    public StudyGroup findStudyGroupById(@PathVariable("studyGroupId") Integer studyGroupId) {
+        return service.findStudyGroupById(studyGroupId);
     }
 
-    @DeleteMapping("/api/studygroups/{studentId}")
-    public List<StudyGroup> deleteStudentStudy(@PathVariable("studentId") Integer studentId) {
-        return studentStudyService.deleteStudentStudy(studentId);
+    @DeleteMapping("/api/studygroups/{studyGroupId}")
+    public List<StudyGroup> deleteStudyGroup(@PathVariable("studyGroupId") Integer studyGroupId) {
+        return service.deleteStudyGroup(studyGroupId);
     }
 }
