@@ -49,6 +49,7 @@ public class CommentService {
     }
 
     public Comment createComment(Comment newComment) {
+        newComment.setId(newComment.hashCode());
         this.comments.add(newComment);
         return newComment;
     }
