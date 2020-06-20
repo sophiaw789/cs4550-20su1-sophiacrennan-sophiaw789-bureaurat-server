@@ -13,8 +13,8 @@ public class PostController {
     @Autowired
     PostService postService;
 
-    @PutMapping("/api/posts/{pid}")
-    public Post updatePost(@PathVariable("pid") Integer postId, @RequestBody Post updatedPost) {
+    @PutMapping("/api/posts/{postId}")
+    public Post updatePost(@PathVariable("postId") Integer postId, @RequestBody Post updatedPost) {
         return postService.updatePost(postId, updatedPost);
     }
 
@@ -29,13 +29,13 @@ public class PostController {
         return postService.findAllPosts();
     }
 
-    @GetMapping("/api/posts/{pid}")
-    public Post findPostById(@PathVariable("pid") Integer pid) {
+    @GetMapping("/api/posts/{postId}")
+    public Post findPostById(@PathVariable("postId") Integer pid) {
         return postService.findPostById(pid);
     }
 
-    @DeleteMapping("/api/posts/{pid}")
-    public List<Post> deletePost(@PathVariable("pid") Integer pid) {
+    @DeleteMapping("/api/posts/{postId}")
+    public List<Post> deletePost(@PathVariable("postId") Integer pid) {
         return postService.deletePost(pid);
     }
 
