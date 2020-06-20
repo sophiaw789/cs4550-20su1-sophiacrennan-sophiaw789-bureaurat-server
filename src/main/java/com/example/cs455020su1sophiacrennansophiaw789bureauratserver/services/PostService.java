@@ -2,6 +2,8 @@ package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.services;
 
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.Comment;
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.Post;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,9 +11,10 @@ import java.util.List;
 
 @Service
 public class PostService {
+    @Autowired
+    CommentService commentService;
     List<Post> posts = new ArrayList<Post>();
-    {
-    }
+    {}
 
     public List<Post> findPostsForStudyGroup(Integer studyId) {
         List<Post> result = new ArrayList<Post>();
@@ -51,7 +54,7 @@ public class PostService {
     public List<Post> deleteCommentsFromUser(Integer userId) {
         for (Post p : posts) {
             List<Comment> cResult = new ArrayList<Comment>();
-            for (Comment c : p.getComments()) {
+            for (Comment c : commentService.findCommentsForPost(p.getId())) {
                 if (c.getCommenterId() != userId) {
                     cResult.add(c);
                 }
