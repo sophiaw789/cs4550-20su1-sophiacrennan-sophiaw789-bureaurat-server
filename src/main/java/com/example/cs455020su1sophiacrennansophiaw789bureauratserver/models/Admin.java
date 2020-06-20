@@ -4,9 +4,20 @@ import java.util.List;
 
 public class Admin extends User {
 
+    private String facultyStatus;
+
     public Admin(int id, String username, String password, String email, String firstName, String lastName, String role,
-            String bio, String location, List<Integer> studyGroups) {
+            String bio, String location, List<Integer> studyGroups, String facultyStatus) {
         super(id, username, password, email, firstName, lastName, role, bio, location, studyGroups);
+        this.facultyStatus = facultyStatus;
+    }
+
+    public String getFacultyStatus() {
+        return facultyStatus;
+    }
+
+    public void setFacultyStatus(String facultyStatus) {
+        this.facultyStatus = facultyStatus;
     }
     
 }
