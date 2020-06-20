@@ -49,7 +49,6 @@ public class CommentService {
     }
 
     public Comment createComment(Comment newComment) {
-        newComment.setId(comments.size() * 20 + 21);
         this.comments.add(newComment);
         return newComment;
     }

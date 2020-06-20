@@ -47,7 +47,7 @@ public class PostService {
     }
 
     public Post createPost(Post newPost) {
-        newPost.setId(posts.size() * 20 + 21);
+        newPost.setId(newPost.hashCode());
         this.posts.add(newPost);
         return newPost;
     } 

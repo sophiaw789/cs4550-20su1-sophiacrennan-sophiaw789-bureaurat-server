@@ -48,7 +48,7 @@ public class StudyGroupService {
     }
 
     public StudyGroup createStudyGroup(StudyGroup newStudyGroup) {
-        newStudyGroup.setId(studyGroups.size() * 20 + 21);
+        newStudyGroup.setId(newStudyGroup.hashCode());
         this.studyGroups.add(newStudyGroup);
         return newStudyGroup;
     }

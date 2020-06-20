@@ -11,8 +11,8 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     */
     private Integer id;
-    private Integer postId;
-    private Integer commenterId;
+    private Integer postId; 
+    private long commenterId;
     private String text;
 
     public Integer getId() {
@@ -31,11 +31,11 @@ public class Comment {
         this.postId = postId;
     }
 
-    public Integer getCommenterId() {
+    public long getCommenterId() {
         return commenterId;
     }
 
-    public void setCommenterId(Integer commenterId) {
+    public void setCommenterId(long commenterId) {
         this.commenterId = commenterId;
     }
 
