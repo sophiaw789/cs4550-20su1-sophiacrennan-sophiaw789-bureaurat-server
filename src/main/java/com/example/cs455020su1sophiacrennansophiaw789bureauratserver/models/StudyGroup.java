@@ -16,9 +16,8 @@ public class StudyGroup {
    * @GeneratedValue(strategy = GenerationType.IDENTITY)
    */
   private Integer id;
-
   private Integer courseId;
-  private Integer currentUserId;
+  private String courseName;
   /* 
    * @ManyToMany
    * 
@@ -29,9 +28,9 @@ public class StudyGroup {
   private List<Integer> studentsInGroupIds;
   private List<Integer> postsIds;
   
-  public StudyGroup(Integer id, Integer courseId, Integer currentUserId,
+  public StudyGroup(Integer id, Integer courseId, Integer currentUserId, String courseName,
   List<Integer> studentsInGroupIds, List<Integer> postsIds) { this.id = id;
-  this.courseId = courseId; this.currentUserId = currentUserId;
+  this.courseId = courseId; this.currentUserId = currentUserId; this.courseName = courseName;
   this.studentsInGroupIds = studentsInGroupIds; this.postsIds = postsIds; }
   
 
@@ -57,6 +56,14 @@ public class StudyGroup {
 
   public void setCurrentUserId(Integer currentUserId) {
     this.currentUserId = currentUserId;
+  }
+
+  public String getCourseName() {
+    return courseName;
+  }
+
+  public void setCourseName(String courseName) {
+    this.courseName = courseName;
   }
 
   public List<Integer> getStudentsInGroupIds() {
