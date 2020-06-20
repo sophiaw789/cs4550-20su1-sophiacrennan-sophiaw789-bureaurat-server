@@ -30,7 +30,7 @@ public class StudyGroup {
   
   public StudyGroup(Integer id, Integer courseId, Integer currentUserId, String courseName,
   List<Integer> studentsInGroupIds, List<Integer> postsIds) { this.id = id;
-  this.courseId = courseId; this.currentUserId = currentUserId; this.courseName = courseName;
+  this.courseId = courseId; this.courseName = courseName;
   this.studentsInGroupIds = studentsInGroupIds; this.postsIds = postsIds; }
   
 
@@ -48,14 +48,6 @@ public class StudyGroup {
 
   public void setCourseId(Integer courseId) {
     this.courseId = courseId;
-  }
-
-  public Integer getCurrentUserId() {
-    return currentUserId;
-  }
-
-  public void setCurrentUserId(Integer currentUserId) {
-    this.currentUserId = currentUserId;
   }
 
   public String getCourseName() {

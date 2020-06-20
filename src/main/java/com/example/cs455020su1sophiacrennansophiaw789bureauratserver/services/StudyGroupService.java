@@ -10,12 +10,7 @@ import java.util.List;
 @Service
 public class StudyGroupService {
     List<StudyGroup> studentStudys = new ArrayList<StudyGroup>();
-    {
-        studentStudys.add(new StudyGroup(123, 1, 1, new ArrayList<Integer>(), new ArrayList<Integer>()));
-        studentStudys.get(0).getStudentsInGroupIds().add(1);
-        studentStudys.get(0).getPostsIds().add(1);
-
-    }
+    {}
 
 /*
     public List<StudyGroup> findStudentStudysForCourse(Integer cid) {
