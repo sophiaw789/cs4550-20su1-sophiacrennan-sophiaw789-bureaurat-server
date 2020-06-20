@@ -19,7 +19,6 @@ public class Post {
     private Integer posterId;
     private String title;
     private String text;
-    private String date;
     private List<Comment> comments;
 
     /*
@@ -71,14 +70,6 @@ public class Post {
 
     public void setText(String text) {
         this.text = text;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
     }
 
     public List<Comment> getComments() {
