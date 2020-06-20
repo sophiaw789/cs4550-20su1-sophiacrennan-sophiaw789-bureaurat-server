@@ -12,7 +12,7 @@ public class Comment {
     */
     private Integer id;
     private Integer postId; 
-    private long commenterId;
+    private Integer commenterId;
     private String text;
 
     public Integer getId() {
@@ -31,11 +31,11 @@ public class Comment {
         this.postId = postId;
     }
 
-    public long getCommenterId() {
+    public Integer getCommenterId() {
         return commenterId;
     }
 
-    public void setCommenterId(long commenterId) {
+    public void setCommenterId(Integer commenterId) {
         this.commenterId = commenterId;
     }
 

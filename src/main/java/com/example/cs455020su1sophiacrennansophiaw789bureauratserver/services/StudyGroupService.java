@@ -1,6 +1,9 @@
 package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.services;
 
+import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.Post;
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.StudyGroup;
+
+import org.springframework.beans.factory.annotation.Autowired;
 //import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.User;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +12,9 @@ import java.util.List;
 
 @Service
 public class StudyGroupService {
+    @Autowired
+    PostService postService;
+
     List<StudyGroup> studyGroups = new ArrayList<StudyGroup>();
     {
     }
@@ -45,6 +51,32 @@ public class StudyGroupService {
         }
         this.studyGroups = result;
         return result;
+    }
+
+    public List<StudyGroup> deleteUserFromStudyGroup(Integer userId) {
+        List<StudyGroup> result = new ArrayList<StudyGroup>();
+        for (StudyGroup w : this.deletePostsFromUser(userId)) {
+            for (Integer u : w.getStudentsInGroupIds()) {
+                if (u != userId) {
+                    result.add(w);
+                }
+            }
+        }
+        this.studyGroups = result;
+        return result;
+    }
+
+    public List<StudyGroup> deletePostsFromUser(Integer userId) {
+        for (StudyGroup s : studyGroups) {
+            List<Integer> pResult = new ArrayList<Integer>();
+            for (Post p : postService.deleteCommentsFromUser(userId)) {
+                if (p.getPosterId() != userId) {
+                    pResult.add(p.getId());
+                }
+            }
+            s.setPostsIds(pResult);
+        }
+        return this.studyGroups;
     }
 
     public StudyGroup createStudyGroup(StudyGroup newStudyGroup) {

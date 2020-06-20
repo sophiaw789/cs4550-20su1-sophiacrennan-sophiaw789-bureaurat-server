@@ -1,9 +1,9 @@
 package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models;
 
 public class PostId {
-    private long userId;
-    private long studyGroupId;
-    
+    private Integer userId;
+    private Integer studyGroupId;
+
     public int hashCode() {
         return (int)(userId + studyGroupId);
     }

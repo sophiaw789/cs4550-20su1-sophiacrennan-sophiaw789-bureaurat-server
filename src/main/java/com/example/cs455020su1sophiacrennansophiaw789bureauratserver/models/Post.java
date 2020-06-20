@@ -13,10 +13,10 @@ public class Post {
     /*
      * @Id
      */
-    private long id;
+    private Integer id;
     // @Id
     private Integer studyGroupId;
-    private long posterId;
+    private Integer posterId;
     private String title;
     private String text;
     private String date;
@@ -33,11 +33,11 @@ public class Post {
      * @PrimaryKeyJoinColumn(name="studyGroup", referencedColumnName="ID") private
      * StudyGroup studyGroup;
      */
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -49,11 +49,11 @@ public class Post {
         this.studyGroupId = studyGroupId;
     }
 
-    public long getPosterId() {
+    public Integer getPosterId() {
         return posterId;
     }
 
-    public void setPosterId(long posterId) {
+    public void setPosterId(Integer posterId) {
         this.posterId = posterId;
     }
 

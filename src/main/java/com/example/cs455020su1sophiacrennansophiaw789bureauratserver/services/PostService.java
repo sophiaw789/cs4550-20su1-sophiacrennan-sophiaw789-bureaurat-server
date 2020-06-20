@@ -1,5 +1,6 @@
 package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.services;
 
+import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.Comment;
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.Post;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +10,8 @@ import java.util.List;
 @Service
 public class PostService {
     List<Post> posts = new ArrayList<Post>();
-    {}
+    {
+    }
 
     public List<Post> findPostsForStudyGroup(Integer studyId) {
         List<Post> result = new ArrayList<Post>();
@@ -22,7 +24,7 @@ public class PostService {
         return result;
     }
 
-    public Post findPostById(long pid) {
+    public Post findPostById(Integer pid) {
         for (Post p : posts) {
             if (p.getId() == pid) {
                 return p;
@@ -46,11 +48,24 @@ public class PostService {
         return result;
     }
 
+    public List<Post> deleteCommentsFromUser(Integer userId) {
+        for (Post p : posts) {
+            List<Comment> cResult = new ArrayList<Comment>();
+            for (Comment c : p.getComments()) {
+                if (c.getCommenterId() != userId) {
+                    cResult.add(c);
+                }
+            }
+            p.setComments(cResult);
+        }
+        return this.posts;
+    }
+
     public Post createPost(Post newPost) {
         newPost.setId(newPost.hashCode());
         this.posts.add(newPost);
         return newPost;
-    } 
+    }
 
     public Post updatePost(Integer pid, Post updatedPost) {
         for (int i = 0; i < posts.size(); i++) {
