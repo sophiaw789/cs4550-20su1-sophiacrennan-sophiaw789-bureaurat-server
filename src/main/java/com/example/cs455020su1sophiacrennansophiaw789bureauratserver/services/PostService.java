@@ -9,9 +9,10 @@ import java.util.List;
 
 @Service
 public class PostService {
-    CommentService commentService;
     List<Post> posts = new ArrayList<Post>();
     {}
+
+    CommentService commentService;
 
     public List<Post> findPostsForStudyGroup(Integer studyId) {
         List<Post> result = new ArrayList<Post>();
@@ -40,7 +41,7 @@ public class PostService {
     public List<Post> deletePost(Integer pid) {
         List<Post> result = new ArrayList<Post>();
         for (Post p : posts) {
-            if (p.getId() != pid) {
+            if (!p.getId().equals(pid)) {
                 result.add(p);
             }
         }

@@ -39,9 +39,9 @@ public class CommentService {
 
     public List<Comment> deleteComment(Integer comId) {
         List<Comment> result = new ArrayList<Comment>();
-        for (Comment w : comments) {
-            if (!w.getId().equals(comId)) {
-                result.add(w);
+        for (Comment c : comments) {
+            if (!c.getId().equals(comId)) {
+                result.add(c);
             }
         }
         this.comments = result;
