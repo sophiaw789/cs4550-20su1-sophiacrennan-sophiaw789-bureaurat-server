@@ -24,7 +24,7 @@ public class PostService {
         return result;
     }
 
-    public Post findPostById(long pid) {
+    public Post findPostById(Integer pid) {
         for (Post p : posts) {
             if (p.getId() == pid) {
                 return p;
