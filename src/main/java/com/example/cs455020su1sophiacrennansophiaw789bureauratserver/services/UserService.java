@@ -74,8 +74,8 @@ public class UserService {
 
     public List<User> deleteUser(Integer userId) {
         List<User> result = new ArrayList<User>();
+        studyService.deleteUserFromStudyGroup(userId);
         for (User u : users) {
-            studyService.deleteUserFromStudyGroup(userId);
             if (!u.getId().equals(userId)) {
                 result.add(u);
             }
