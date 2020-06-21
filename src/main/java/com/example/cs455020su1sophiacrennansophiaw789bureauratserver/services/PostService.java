@@ -26,7 +26,7 @@ public class PostService {
 
     public Post findPostById(Integer pid) {
         for (Post p : posts) {
-            if (p.getId() == pid) {
+            if (p.getId().equals(pid)) {
                 return p;
             }
         }
@@ -40,7 +40,7 @@ public class PostService {
     public List<Post> deletePost(Integer pid) {
         List<Post> result = new ArrayList<Post>();
         for (Post p : posts) {
-            if (p.getId() != pid) {
+            if (p.getId().equals(pid)) {
                 result.add(p);
             }
         }
@@ -56,7 +56,7 @@ public class PostService {
 
     public Post updatePost(Integer pid, Post updatedPost) {
         for (int i = 0; i < posts.size(); i++) {
-            if (posts.get(i).getId() == pid) {
+            if (posts.get(i).getId().equals(pid)) {
                 updatedPost.setId(pid);
                 posts.set(i, updatedPost);
                 return updatedPost;
