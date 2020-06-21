@@ -14,13 +14,11 @@ public class CommentService {
 
     public List<Comment> findCommentsForPost(Integer pid) {
         List<Comment> result = new ArrayList<Comment>();
-
         for (Comment w : comments) {
             if (w.getPostId().equals(pid)) {
                 result.add(w);
             }
         }
-
         return result;
     }
 

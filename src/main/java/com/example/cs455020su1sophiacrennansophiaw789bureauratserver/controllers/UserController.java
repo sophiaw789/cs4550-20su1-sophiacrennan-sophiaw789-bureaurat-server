@@ -57,8 +57,7 @@ public class UserController {
     }
 
     @DeleteMapping("/api/users/{userId}")
-    public List<User> deleteUser(@PathVariable("userId") Integer id, HttpSession session) {
-        session.invalidate();
+    public List<User> deleteUser(@PathVariable("userId") Integer id) {
         return service.deleteUser(id);
     }
 

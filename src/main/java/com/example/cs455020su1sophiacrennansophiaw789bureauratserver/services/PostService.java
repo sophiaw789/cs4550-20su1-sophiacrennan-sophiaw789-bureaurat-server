@@ -85,6 +85,6 @@ public class PostService {
             }
             p.setComments(cResult);
         }
-        return this.posts;
+        return posts;
     }
 }
