@@ -40,13 +40,14 @@ public class PostService {
     public List<Post> deletePost(Integer pid) {
         List<Post> result = new ArrayList<Post>();
         for (Post p : posts) {
-            if (p.getId().equals(pid)) {
+            if (p.getId() != pid) {
                 result.add(p);
             }
         }
         this.posts = result;
         return result;
     }
+
 
     public Post createPost(Post newPost) {
         newPost.setId(newPost.hashCode());
