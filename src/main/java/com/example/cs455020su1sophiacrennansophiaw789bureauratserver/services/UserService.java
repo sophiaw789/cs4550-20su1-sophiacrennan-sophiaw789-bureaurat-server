@@ -3,7 +3,7 @@ package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.services;
 //import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.StudyGroup;
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.User;
 
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 //import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,6 @@ import java.util.List;
 @Service
 public class UserService {
 
-    @Autowired
     StudyGroupService studyService;
     // @Autowired
     // UserRepository repository;
