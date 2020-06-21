@@ -55,7 +55,7 @@ public class StudyGroupService {
         List<StudyGroup> result = new ArrayList<StudyGroup>();
         for (StudyGroup w : this.deletePostsFromUser(userId)) {
             for (Integer u : w.getStudentsInGroupIds()) {
-                if (u != userId) {
+                if (!u.equals(userId)) {
                     result.add(w);
                 }
             }
