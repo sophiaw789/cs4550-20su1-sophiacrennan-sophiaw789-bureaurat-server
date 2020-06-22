@@ -70,17 +70,7 @@ public class UserService {
     }
 
     public User createUser(User newUser) {
-        if (newUser.getRole() == "ADMIN") {
-            Admin admin = new Admin();
-            admin.set(newUser);
-            admin.setFacultyStatus("TA");
-            return aRepository.save(admin);
-        }
-        else {
-            Student student = new Student();
-            student.set(newUser);
-            return sRepository.save(student);
-        }
+        return repository.save(newUser);
     }
 
     public User updateUser(Integer userId, User updatedUser) {
