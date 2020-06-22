@@ -2,19 +2,16 @@ package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models;
 
 import java.util.List;
 
-//import javax.persistence.*;
-/*
+import javax.persistence.*;
+
 @Entity
 @Table(name = "users")
-@IdClass(ReviewId.class)
-*/
+// @IdClass(ReviewId.class)
 public class User {
-    /*
-     * @Id
-     * 
-     * @GeneratedValue(strategy = GenerationType.IDENTITY)
-     */
-    private int id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String username;
     private String password;
     private String firstName;
@@ -23,11 +20,18 @@ public class User {
     private String role;
     private String bio;
     private String location;
-    private List<Integer> studyGroups;
 
+    @ManyToMany
+    @JoinTable(name = "enrollments", 
+        joinColumns = @JoinColumn(name = "USER_ID", referencedColumnName = "ID"), 
+        inverseJoinColumns = @JoinColumn(name = "STUDY_GROUP_ID", referencedColumnName = "ID"))
+    private List<StudyGroup> studyGroups;
 
-    public User(int id, String username, String password, String email, String firstName, String lastName,
-        String role, String bio, String location, List<Integer> studyGroups) {
+    public User() {
+    }
+
+    public User(int id, String username, String password, String email, String firstName, String lastName, String role,
+            String bio, String location, List<StudyGroup> studyGroups) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
@@ -40,11 +44,7 @@ public class User {
         this.studyGroups = studyGroups;
     }
 
-    /*
-     * @OneToMany(mappedBy="user") private List<Post> posts;
-     * 
-     * @ManyToMany
-     * 
+/*     @ManyToMany
      * @JoinTable( name="enrollments", joinColumns=@JoinColumn(name="USER_ID",
      * referencedColumnName="ID"),
      * inverseJoinColumns=@JoinColumn(name="STUDYGROUP_ID",
@@ -55,6 +55,24 @@ public class User {
     // users = {u1, u2, u3}
     // enrollments = {(u1, s1, 'A', 5), (u2, s1, 'A-', 4), (u2, s3), (u3, s3)}
     // sections = {s1, s2, s3}
+    public void set(User newUser) {
+        this.username = newUser.username;
+        this.password = newUser.password;
+        this.firstName = newUser.firstName;
+        this.lastName = newUser.lastName;
+        this.email = newUser.email;
+        this.role = newUser.role;
+        this.bio = newUser.bio;
+        this.location = newUser.location;
+        this.studyGroups = newUser.studyGroups;
+    }
+
+    public void enrollStudyGroup(StudyGroup group) {
+        this.getStudyGroups().add(group);
+        if (!group.getStudentsInGroupIds().contains(this)) {
+            group.getStudentsInGroupIds().add(this);
+        }
+    }
 
     public Integer getId() {
         return id;
@@ -112,11 +130,11 @@ public class User {
         this.role = role;
     }
 
-    public List<Integer> getStudyGroups() {
+    public List<StudyGroup> getStudyGroups() {
         return studyGroups;
     }
 
-    public void setStudyGroups(List<Integer> studyGroups) {
+    public void setStudyGroups(List<StudyGroup> studyGroups) {
         this.studyGroups = studyGroups;
     }
 
@@ -135,18 +153,13 @@ public class User {
     public void setLocation(String location) {
         this.location = location;
     }
-/*
-    public int hashCode() {
-        return id + username.hashCode() + password.hashCode() + email.hashCode();
-    }
-
-    public boolean equals(Object object) {
-        if (object instanceof User) {
-            User otherId = (User) object;
-            return (otherId.id == this.id) && (otherId.username == this.username)
-                    && (otherId.password == this.password) && (otherId.email == this.email);
-                }
-        return false;
-    }
-    */
+    /*
+     * public int hashCode() { return id + username.hashCode() + password.hashCode()
+     * + email.hashCode(); }
+     * 
+     * public boolean equals(Object object) { if (object instanceof User) { User
+     * otherId = (User) object; return (otherId.id == this.id) && (otherId.username
+     * == this.username) && (otherId.password == this.password) && (otherId.email ==
+     * this.email); } return false; }
+     */
 }
