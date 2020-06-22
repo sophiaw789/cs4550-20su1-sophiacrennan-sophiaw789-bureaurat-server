@@ -1,12 +1,8 @@
 package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.services;
 
-import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.Admin;
-import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.Student;
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.StudyGroup;
 //import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.StudyGroup;
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.User;
-import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.repositories.AdminRepository;
-import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.repositories.StudentRepository;
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.repositories.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +18,6 @@ public class UserService {
     @Autowired
     UserRepository repository;
     StudyGroupService studyService;
-    AdminRepository adRepository;
-    StudentRepository sRepository;
     // @Autowired
     // UserRepository repository;
     /*
@@ -59,6 +53,7 @@ public class UserService {
 
     public User findUserById(Integer userId) {
         return repository.findUserById(userId);
+
     }
 
     public List<User> findAllUsers() {
@@ -70,17 +65,7 @@ public class UserService {
     }
 
     public User createUser(User newUser) {
-        if (newUser.getRole() == "ADMIN") {
-            Admin admin = new Admin();
-            admin.set(newUser);
-            admin.setFacultyStatus("TA");
-            return adRepository.save(admin);
-        }
-        else {
-            Student student = new Student();
-            student.set(newUser);
-            return sRepository.save(student);
-        }
+        return repository.save(newUser);
     }
 
     public User updateUser(Integer userId, User updatedUser) {
