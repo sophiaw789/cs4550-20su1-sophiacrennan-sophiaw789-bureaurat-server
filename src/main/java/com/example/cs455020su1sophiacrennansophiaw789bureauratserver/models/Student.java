@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 @Entity
 public class Student extends User {
 
+    public Student() {}
+    
     public Student(int id, String username, String password, String email, String firstName, String lastName,
             String role, String bio, String location, List<StudyGroup> studyGroups) {
         super(id, username, password, email, firstName, lastName, role, bio, location, studyGroups);

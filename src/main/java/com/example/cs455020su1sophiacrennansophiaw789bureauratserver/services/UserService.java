@@ -1,6 +1,7 @@
 package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.services;
 
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.Admin;
+import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.Student;
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.StudyGroup;
 //import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.StudyGroup;
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.User;
@@ -69,8 +70,13 @@ public class UserService {
             Admin admin = new Admin();
             admin.set(newUser);
             admin.setFacultyStatus("TA");
+            return repository.save(admin);
         }
-        return repository.save(newUser);
+        else {
+            Student student = new Student();
+            student.set(newUser);
+            return repository.save(student);
+        }
     }
 
     public User updateUser(Integer userId, User updatedUser) {
