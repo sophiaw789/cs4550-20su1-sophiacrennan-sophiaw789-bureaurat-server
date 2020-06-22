@@ -2,7 +2,6 @@ package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.services;
 
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.Comment;
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.Post;
-import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.repositories.PostRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,18 +11,17 @@ import java.util.List;
 
 @Service
 public class PostService {
-    @Autowired
-    PostRepository repository;
     List<Post> posts = new ArrayList<Post>();
     {}
 
+    @Autowired
     CommentService commentService;
 
     public List<Post> findPostsForStudyGroup(Integer studyId) {
         List<Post> result = new ArrayList<Post>();
 
         for (Post p : posts) {
-            if (p.getStudyGroupId().getId().equals(studyId)) {
+            if (p.getStudyGroupId().equals(studyId)) {
                 result.add(p);
             }
         }

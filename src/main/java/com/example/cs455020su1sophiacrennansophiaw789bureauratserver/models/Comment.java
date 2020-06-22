@@ -1,24 +1,19 @@
 package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models;
-
+/*
 import javax.persistence.*;
 
 @Entity
 @Table(name = "comments")
+*/
 public class Comment {
+    /*
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    */
     private Integer id;
+    private Integer postId; 
     private Integer commenterId;
     private String text;
-
-    @ManyToOne()
-    private Post postId; 
-
-    public void set(Comment newComment) {
-        this.commenterId = newComment.commenterId;
-        this.text = newComment.text;
-        this.postId = newComment.postId;
-    }
 
     public Integer getId() {
         return id;
@@ -28,11 +23,11 @@ public class Comment {
         this.id = id;
     }
 
-    public Post getPostId() {
+    public Integer getPostId() {
         return postId;
     }
 
-    public void setPostId(Post postId) {
+    public void setPostId(Integer postId) {
         this.postId = postId;
     }
 

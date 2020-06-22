@@ -1,10 +1,7 @@
 package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.controllers;
 
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.Post;
-import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.StudyGroup;
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.services.PostService;
-import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.services.StudyGroupService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +12,6 @@ import java.util.List;
 public class PostController {
     @Autowired
     PostService postService;
-    StudyGroupService studyService;
 
     @PutMapping("/api/posts/{pid}")
     public Post updatePost(@PathVariable("pid") Integer postId, @RequestBody Post updatedPost) {
@@ -24,8 +20,7 @@ public class PostController {
 
     @PostMapping("/api/studygroups/{studyId}/posts")
     public Post createPost(@PathVariable("studyId") Integer studyId, @RequestBody Post newPost) {
-        StudyGroup study = studyService.findStudyGroupById(studyId);
-        newPost.setStudyGroupId(study);
+        newPost.setStudyGroupId(studyId);
         return postService.createPost(newPost);
     }
 
@@ -40,8 +35,8 @@ public class PostController {
     }
 
     @DeleteMapping("/api/posts/{pid}")
-    public void deletePost(@PathVariable("pid") Integer pid) {
-        postService.deletePost(pid);
+    public List<Post> deletePost(@PathVariable("pid") Integer pid) {
+        return postService.deletePost(pid);
     }
 
     

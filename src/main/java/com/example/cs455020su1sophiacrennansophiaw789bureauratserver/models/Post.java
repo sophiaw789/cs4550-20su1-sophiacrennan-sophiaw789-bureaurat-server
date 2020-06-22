@@ -2,23 +2,23 @@ package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models;
 
 import java.util.List;
 
+/*
 import javax.persistence.*;
 
 @Entity
 @Table(name = "posts")
-//@IdClass(PostId.class)
+@IdClass(PostId.class)
+*/
 public class Post {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    /*
+     * @Id
+     */
     private Integer id;
+    // @Id
+    private Integer studyGroupId;
     private Integer posterId;
     private String title;
     private String text;
-
-    @ManyToOne()
-    private StudyGroup studyGroupId;
-
-    @OneToMany(mappedBy="postId")
     private List<Comment> comments;
 
     /*
@@ -32,15 +32,6 @@ public class Post {
      * @PrimaryKeyJoinColumn(name="studyGroup", referencedColumnName="ID") private
      * StudyGroup studyGroup;
      */
-
-    public void set(Post newPost) {
-        this.posterId = newPost.posterId;
-        this.title = newPost.title;
-        this.text = newPost.text;
-        this.studyGroupId = newPost.studyGroupId;
-        this.comments = newPost.comments;
-    }
-    
     public Integer getId() {
         return id;
     }
@@ -49,11 +40,11 @@ public class Post {
         this.id = id;
     }
 
-    public StudyGroup getStudyGroupId() {
+    public Integer getStudyGroupId() {
         return studyGroupId;
     }
 
-    public void setStudyGroupId(StudyGroup studyGroupId) {
+    public void setStudyGroupId(Integer studyGroupId) {
         this.studyGroupId = studyGroupId;
     }
 

@@ -2,10 +2,7 @@ package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.services;
 
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.Post;
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.StudyGroup;
-import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.User;
-import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.repositories.StudyRepository;
 
-import org.springframework.beans.factory.annotation.Autowired;
 //import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.User;
 import org.springframework.stereotype.Service;
 
@@ -14,12 +11,11 @@ import java.util.List;
 
 @Service
 public class StudyGroupService {
-    @Autowired
-    StudyRepository repository;
     PostService postService;
 
     List<StudyGroup> studyGroups = new ArrayList<StudyGroup>();
-    {}
+    {
+    }
 
     /*
      * public List<StudyGroup> findStudentStudysForCourse(Integer cid) {
@@ -58,8 +54,8 @@ public class StudyGroupService {
     public List<StudyGroup> deleteUserFromStudyGroup(Integer userId) {
         List<StudyGroup> result = new ArrayList<StudyGroup>();
         for (StudyGroup w : this.deletePostsFromUser(userId)) {
-            for (User u : w.getStudentsInGroupIds()) {
-                if (!u.getId().equals(userId)) {
+            for (Integer u : w.getStudentsInGroupIds()) {
+                if (!u.equals(userId)) {
                     result.add(w);
                 }
             }
@@ -70,10 +66,10 @@ public class StudyGroupService {
 
     public List<StudyGroup> deletePostsFromUser(Integer userId) {
         for (StudyGroup s : studyGroups) {
-            List<Post> pResult = new ArrayList<Post>();
+            List<Integer> pResult = new ArrayList<Integer>();
             for (Post p : postService.deleteCommentsFromUser(userId)) {
                 if (p.getPosterId() != userId) {
-                    pResult.add(p);
+                    pResult.add(p.getId());
                 }
             }
             s.setPostsIds(pResult);
