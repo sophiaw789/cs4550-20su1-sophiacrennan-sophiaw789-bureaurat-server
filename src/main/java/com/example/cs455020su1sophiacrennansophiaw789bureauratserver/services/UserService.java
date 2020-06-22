@@ -5,6 +5,8 @@ import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.Stud
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.StudyGroup;
 //import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.StudyGroup;
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.User;
+import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.repositories.AdminRepository;
+import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.repositories.StudentRepository;
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.repositories.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,8 @@ public class UserService {
     @Autowired
     UserRepository repository;
     StudyGroupService studyService;
+    AdminRepository adRepository;
+    StudentRepository sRepository;
     // @Autowired
     // UserRepository repository;
     /*
@@ -70,12 +74,12 @@ public class UserService {
             Admin admin = new Admin();
             admin.set(newUser);
             admin.setFacultyStatus("TA");
-            return repository.save(admin);
+            return adRepository.save(admin);
         }
         else {
             Student student = new Student();
             student.set(newUser);
-            return repository.save(student);
+            return sRepository.save(student);
         }
     }
 
