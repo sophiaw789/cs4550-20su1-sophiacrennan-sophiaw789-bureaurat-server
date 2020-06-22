@@ -1,5 +1,7 @@
 package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.services;
 
+import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.Admin;
+import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.Student;
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.StudyGroup;
 //import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.StudyGroup;
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.User;
@@ -53,7 +55,6 @@ public class UserService {
 
     public User findUserById(Integer userId) {
         return repository.findUserById(userId);
-
     }
 
     public List<User> findAllUsers() {
@@ -65,7 +66,17 @@ public class UserService {
     }
 
     public User createUser(User newUser) {
-        return repository.save(newUser);
+        if (newUser.getRole() == "ADMIN") {
+            Admin admin = new Admin();
+            admin.set(newUser);
+            admin.setFacultyStatus("TA");
+            return repository.save(admin);
+        }
+        else {
+            Student student = new Student();
+            student.set(newUser);
+            return repository.save(student);
+        }
     }
 
     public User updateUser(Integer userId, User updatedUser) {
