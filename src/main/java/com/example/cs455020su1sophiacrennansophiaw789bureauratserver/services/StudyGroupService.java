@@ -2,7 +2,9 @@ package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.services;
 
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.Post;
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.StudyGroup;
+import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.repositories.StudyRepository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 //import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.User;
 import org.springframework.stereotype.Service;
 
@@ -11,8 +13,11 @@ import java.util.List;
 
 @Service
 public class StudyGroupService {
+    //@Autowired
+    StudyRepository repository;
+    @Autowired
     PostService postService;
-
+    
     List<StudyGroup> studyGroups = new ArrayList<StudyGroup>();
     {
     }

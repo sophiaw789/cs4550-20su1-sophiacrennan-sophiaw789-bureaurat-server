@@ -2,18 +2,16 @@ package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models;
 
 import java.util.List;
 
-//import javax.persistence.*;
-/*
-@Entity
-@Table(name = "users")
-@IdClass(ReviewId.class)
-*/
+import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+//@Entity
+//@Table(name = "users")
 public class User {
-    /*
-     * @Id
-     * 
-     * @GeneratedValue(strategy = GenerationType.IDENTITY)
-     */
+
+    //@Id
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String username;
     private String password;
@@ -25,9 +23,12 @@ public class User {
     private String location;
     private List<Integer> studyGroups;
 
+    //@ManyToMany
+    //@JsonIgnore
+    //private List<StudyGroup> groups;
 
-    public User(int id, String username, String password, String email, String firstName, String lastName,
-        String role, String bio, String location, List<Integer> studyGroups) {
+    public User(int id, String username, String password, String email, String firstName, String lastName, String role,
+            String bio, String location, List<Integer> studyGroups) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
@@ -40,16 +41,17 @@ public class User {
         this.studyGroups = studyGroups;
     }
 
-    /*
-     * @OneToMany(mappedBy="user") private List<Post> posts;
-     * 
-     * @ManyToMany
-     * 
-     * @JoinTable( name="enrollments", joinColumns=@JoinColumn(name="USER_ID",
-     * referencedColumnName="ID"),
-     * inverseJoinColumns=@JoinColumn(name="STUDYGROUP_ID",
-     * referencedColumnName="ID")) private List<StudyGroup> studyGroups;
-     */
+    public void set(User newUser) {
+        this.username = newUser.username;
+        this.password = newUser.password;
+        this.firstName = newUser.firstName;
+        this.lastName = newUser.lastName;
+        this.email = newUser.email;
+        this.role = newUser.role;
+        this.bio = newUser.bio;
+        this.location = newUser.location;
+        this.studyGroups = newUser.studyGroups;
+    }
 
     // many to many in SQL
     // users = {u1, u2, u3}
@@ -135,18 +137,13 @@ public class User {
     public void setLocation(String location) {
         this.location = location;
     }
-/*
-    public int hashCode() {
-        return id + username.hashCode() + password.hashCode() + email.hashCode();
-    }
-
-    public boolean equals(Object object) {
-        if (object instanceof User) {
-            User otherId = (User) object;
-            return (otherId.id == this.id) && (otherId.username == this.username)
-                    && (otherId.password == this.password) && (otherId.email == this.email);
-                }
-        return false;
-    }
-    */
+    /*
+     * public int hashCode() { return id + username.hashCode() + password.hashCode()
+     * + email.hashCode(); }
+     * 
+     * public boolean equals(Object object) { if (object instanceof User) { User
+     * otherId = (User) object; return (otherId.id == this.id) && (otherId.username
+     * == this.username) && (otherId.password == this.password) && (otherId.email ==
+     * this.email); } return false; }
+     */
 }

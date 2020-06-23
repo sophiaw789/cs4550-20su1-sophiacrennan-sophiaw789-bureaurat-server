@@ -1,19 +1,21 @@
 package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models;
-/*
 import javax.persistence.*;
 
-@Entity
-@Table(name = "comments")
-*/
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+//@Entity
+//@Table(name = "comments")
 public class Comment {
-    /*
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    */
+    //@Id
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Integer postId; 
+    private Integer postIdentity; 
     private Integer commenterId;
     private String text;
+
+    //@ManyToOne
+    //@JsonIgnore
+    //private Post post; 
 
     public Integer getId() {
         return id;
@@ -23,12 +25,12 @@ public class Comment {
         this.id = id;
     }
 
-    public Integer getPostId() {
-        return postId;
+    public Integer getPostIdentity() {
+        return postIdentity;
     }
 
-    public void setPostId(Integer postId) {
-        this.postId = postId;
+    public void setPostIdentity(Integer postIdentity) {
+        this.postIdentity = postIdentity;
     }
 
     public Integer getCommenterId() {

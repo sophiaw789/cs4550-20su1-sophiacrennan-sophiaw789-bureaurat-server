@@ -1,37 +1,26 @@
 package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models;
 
 import java.util.List;
-
-/*
 import javax.persistence.*;
 
-@Entity
-@Table(name = "posts")
-@IdClass(PostId.class)
-*/
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+//@Entity
+//@Table(name = "posts")
 public class Post {
-    /*
-     * @Id
-     */
+    //@Id
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    // @Id
     private Integer studyGroupId;
     private Integer posterId;
     private String title;
     private String text;
     private List<Comment> comments;
 
-    /*
-     * @ManyToOne
-     * 
-     * @PrimaryKeyJoinColumn(name="user", referencedColumnName="ID") private User
-     * poster;
-     * 
-     * @ManyToOne
-     * 
-     * @PrimaryKeyJoinColumn(name="studyGroup", referencedColumnName="ID") private
-     * StudyGroup studyGroup;
-     */
+    //@OneToMany(mappedBy = "post")
+    //@JsonIgnore
+    //private List<Comment> com;
+
     public Integer getId() {
         return id;
     }

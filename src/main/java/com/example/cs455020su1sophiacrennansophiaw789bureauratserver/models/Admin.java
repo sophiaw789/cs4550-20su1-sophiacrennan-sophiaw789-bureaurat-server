@@ -2,6 +2,9 @@ package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+
+//@Entity
 public class Admin extends User {
 
     private String facultyStatus;

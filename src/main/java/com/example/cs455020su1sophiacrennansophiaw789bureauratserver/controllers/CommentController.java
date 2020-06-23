@@ -1,4 +1,4 @@
-  
+
 package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.controllers;
 
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.Comment;
@@ -20,8 +20,8 @@ public class CommentController {
     }
 
     @PostMapping("/api/posts/{pid}/comments")
-    public Comment createComment(@PathVariable("pid") Integer postId, @RequestBody Comment newComment) {
-        newComment.setPostId(postId);
+    public Comment createComment(@PathVariable("pid") Integer PostIdentity, @RequestBody Comment newComment) {
+        newComment.setPostIdentity(PostIdentity);
         return commentService.createComment(newComment);
     }
 

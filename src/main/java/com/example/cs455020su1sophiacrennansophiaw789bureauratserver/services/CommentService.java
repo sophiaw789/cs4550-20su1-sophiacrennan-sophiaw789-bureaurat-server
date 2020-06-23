@@ -1,6 +1,9 @@
 package com.example.cs455020su1sophiacrennansophiaw789bureauratserver.services;
 
 import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.models.Comment;
+import com.example.cs455020su1sophiacrennansophiaw789bureauratserver.repositories.CommentRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,10 +15,13 @@ public class CommentService {
     {
     }
 
+    //@Autowired
+    CommentRepository repository;
+    
     public List<Comment> findCommentsForPost(Integer pid) {
         List<Comment> result = new ArrayList<Comment>();
         for (Comment w : comments) {
-            if (w.getPostId().equals(pid)) {
+            if (w.getPostIdentity().equals(pid)) {
                 result.add(w);
             }
         }

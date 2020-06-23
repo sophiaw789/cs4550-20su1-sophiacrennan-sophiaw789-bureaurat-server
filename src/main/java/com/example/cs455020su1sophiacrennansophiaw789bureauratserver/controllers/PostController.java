@@ -14,8 +14,8 @@ public class PostController {
     PostService postService;
 
     @PutMapping("/api/posts/{pid}")
-    public Post updatePost(@PathVariable("pid") Integer postId, @RequestBody Post updatedPost) {
-        return postService.updatePost(postId, updatedPost);
+    public Post updatePost(@PathVariable("pid") Integer postIdentity, @RequestBody Post updatedPost) {
+        return postService.updatePost(postIdentity, updatedPost);
     }
 
     @PostMapping("/api/studygroups/{studyId}/posts")
