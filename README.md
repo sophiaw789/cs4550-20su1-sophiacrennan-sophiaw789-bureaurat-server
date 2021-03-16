@@ -50,5 +50,3 @@ Services:
 	User: 
 		findUserByCredentials, findUsersForStudyGroup, findUserById, findAllUsers, 
 		create, update, delete
-
-I was not able to get the MySQL to work with the server so I excluded it.
